@@ -1,0 +1,733 @@
+@charset "UTF-8";
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 16px;
+  font-size: 1.6rem;
+  -webkit-font-feature-settings: "palt" 1;
+     -moz-font-feature-settings: "palt" 1;
+          font-feature-settings: "palt" 1;
+  font-family: "Noto Sans JP", "Helvetica Neue", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+  -webkit-font-feature-settings: 'palt';
+     -moz-font-feature-settings: 'palt';
+          font-feature-settings: 'palt';
+  letter-spacing: 0.4px;
+  background: #F2F2F2; }
+
+a {
+  color: #337ab7;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+  a:visited {
+    color: #333; }
+  a:active {
+    color: #333; }
+
+.onlySp {
+  display: none !important; }
+
+.onlyPc {
+  display: block !important; }
+
+@media (max-width: 899px) {
+  .onlySp {
+    display: block !important; }
+  .onlyPc {
+    display: none !important; } }
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  line-height: 1.2;
+  font-size: 12px; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/** 追加 **/
+*, :after, :before {
+  box-sizing: border-box; }
+
+.Message {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px auto 0;
+  width: 100%; }
+  @media (max-width: 899px) {
+    .Message {
+      display: block;
+      max-width: inherit; } }
+  .Message_inner {
+    margin: 0 20px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%; }
+    @media (max-width: 899px) {
+      .Message_inner {
+        display: block;
+        margin: 0; } }
+  .Message_left {
+    width: 320px;
+    min-width: 320px;
+    height: calc(100vh - 40px);
+    overflow: scroll;
+    border: 1px solid #ececec; }
+    @media (max-width: 899px) {
+      .Message_left {
+        margin-top: 20px;
+        width: 100%;
+        height: auto;
+        min-width: inherit;
+        margin-top: 0; } }
+  .Message_right {
+    width: 100%;
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    border-right: 1px solid #ececec;
+    height: calc(100vh - 40px);
+    position: relative;
+    background: #f2f2f2; }
+    @media (max-width: 899px) {
+      .Message_right {
+        position: relative;
+        width: 100%;
+        border-top: none;
+        border-bottom: none;
+        height: 100%; } }
+    .Message_right .Message_user {
+      position: absolute;
+      height: 70px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      -webkit-justify-content: flex-start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      border-left: none; }
+      @media (max-width: 899px) {
+        .Message_right .Message_user {
+          height: auto;
+          position: fixed;
+          padding: 5px;
+          box-sizing: border-box;
+          z-index: 999;
+          top: 0;
+          overflow: hidden;
+          min-height: 50px; } }
+      .Message_right .Message_userIcon {
+        margin-right: 20px;
+        position: relative; }
+        .Message_right .Message_userIcon .Message_userStatus {
+          right: 0;
+          bottom: 0; }
+      .Message_right .Message_userStatus {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        font-size: 13px;
+        font-size: 13px;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #888;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center; }
+        @media (max-width: 899px) {
+          .Message_right .Message_userStatus {
+            top: 5px;
+            right: 5px;
+            font-size: 10px;
+            font-size: 1rem;
+            font-weight: normal; } }
+      .Message_right .Message_user .Message_userJob-entry {
+        color: #0869D6;
+        font-weight: bold;
+        text-decoration: underline; }
+      .Message_right .Message_user:hover {
+        background: #fff; }
+  .Message_users {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    background: #fff; }
+  .Message_user {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    border-bottom: 1px solid #ececec;
+    padding: 10px;
+    position: relative; }
+    @media (max-width: 899px) {
+      .Message_user {
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start; } }
+    .Message_user:last-child {
+      border-bottom: none; }
+    .Message_user:hover {
+      background: #f0f0f0;
+      cursor: pointer; }
+    .Message_user-active {
+      background: #2D8DFB; }
+      .Message_user-active .Message_userName, .Message_user-active .Message_userJob, .Message_user-active .Message_userTime {
+        color: #fff; }
+      .Message_user-active:hover {
+        background: #2D8DFB; }
+        .Message_user-active:hover .Message_userName, .Message_user-active:hover .Message_userJob, .Message_user-active:hover .Message_userTime {
+          color: #fff; }
+    .Message_user-done {
+      background: #f7f7f7; }
+    .Message_userLeft {
+      width: 50px; }
+      @media (max-width: 899px) {
+        .Message_userLeft {
+          width: 36px;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-align-items: center;
+              -ms-flex-align: center;
+                  align-items: center; }
+          .Message_userLeft-detail {
+            width: 40px; } }
+    .Message_userCenter {
+      margin-left: 10px; }
+      @media (max-width: 899px) {
+        .Message_userCenter {
+          margin-left: 5px; } }
+    .Message_userAttr .Message_userCharge {
+      position: absolute;
+      bottom: 15px;
+      right: 20px; }
+      @media (max-width: 899px) {
+        .Message_userAttr .Message_userCharge {
+          bottom: 5px;
+          right: 5px; } }
+    .Message_userRight {
+      position: absolute;
+      right: 10px;
+      text-align: right;
+      width: auto;
+      height: 30px; }
+      @media (max-width: 899px) {
+        .Message_userRight {
+          position: absolute;
+          right: 10px;
+          top: 15px; } }
+    .Message_userIcon {
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+      border-radius: 50px;
+      background: url() no-repeat 50% 50%;
+      background-size: cover;
+      position: relative; }
+      @media (max-width: 899px) {
+        .Message_userIcon {
+          width: 34px;
+          height: 34px;
+          min-width: 34px;
+          border-radius: 34px;
+          margin-right: 0 !important; } }
+    .Message_userStatus-login:before {
+      content: "";
+      height: 12px;
+      width: 12px;
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border-radius: 16px;
+      background-color: #06C769;
+      margin-right: 2px; }
+    .Message_userCheck {
+      display: inline-block;
+      background: url(/img/icon_checked.svg) no-repeat 50% 50%;
+      width: 14px;
+      height: 14px;
+      background-size: 14px auto;
+      border-radius: 10px;
+      margin-left: 5px; }
+    .Message_userName {
+      font-size: 14px;
+      font-size: 14px;
+      font-size: 1.4rem;
+      font-weight: bold; }
+      @media (max-width: 899px) {
+        .Message_userName {
+          font-size: 13px;
+          font-size: 1.3rem; } }
+    .Message_userJob {
+      font-size: 13px;
+      font-size: 13px;
+      font-size: 1.3rem;
+      margin-top: 5px;
+      color: #888; }
+      @media (max-width: 899px) {
+        .Message_userJob {
+          font-size: 11px;
+          font-size: 1.1rem;
+          margin-top: 3px; } }
+      .Message_userJob-entry {
+        white-space: nowrap;
+        font-size: 11px;
+        font-size: 11px;
+        font-size: 1.1rem;
+        margin-top: 3px;
+        width: calc(100% - 20px);
+        overflow: hidden; }
+        @media (max-width: 899px) {
+          .Message_userJob-entry {
+            width: calc(100% - 20px);
+            overflow: hidden; } }
+    .Message_userTime {
+      font-size: 10px;
+      font-size: 10px;
+      font-size: 1rem;
+      margin-top: 5px; }
+    .Message_user .Job_agentIcon:before {
+      border-width: 42px 44px 0 0; }
+    .Message_user .Job_agentIcon:after {
+      font-size: 10px;
+      font-size: 10px;
+      font-size: 1rem;
+      top: 10px; }
+  .Message_link {
+    color: #333;
+    text-decoration: none; }
+    .Message_link:hover {
+      text-decoration: none; }
+  .Message_room {
+    background: #f2f2f2;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    overflow-y: scroll;
+    height: calc(100% - 207px); }
+    @media (max-width: 899px) {
+      .Message_room {
+        box-sizing: border-box;
+        position: static;
+        height: 100%;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch !important; } }
+  .Message_messages {
+    display: block;
+    padding: 20px;
+    height: 100%; }
+    @media (max-width: 899px) {
+      .Message_messages {
+        padding: 0 10px; } }
+  .Message_message {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: top;
+        -ms-flex-align: top;
+            align-items: top;
+    margin-bottom: 30px; }
+    @media (max-width: 899px) {
+      .Message_message {
+        margin-bottom: 12px; } }
+    @media (max-width: 899px) {
+      .Message_message:first-child {
+        padding-top: 50px; } }
+    .Message_message:last-child {
+      padding-bottom: 50px; }
+      @media (max-width: 899px) {
+        .Message_message:last-child {
+          margin-bottom: 120px; } }
+    .Message_message-own {
+      -webkit-justify-content: flex-end;
+          -ms-flex-pack: end;
+              justify-content: flex-end; }
+      .Message_message-own .Message_messageBox {
+        background: #2D8DFB;
+        color: #fff;
+        margin-right: 0;
+        margin-left: 100px; }
+        @media (max-width: 899px) {
+          .Message_message-own .Message_messageBox {
+            margin-left: 20px; } }
+        .Message_message-own .Message_messageBox:before {
+          content: "";
+          display: block;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 7.5px 0 7.5px 15px;
+          border-color: transparent transparent transparent #2D8DFB;
+          position: absolute;
+          left: inherit;
+          right: -15px;
+          top: 15px; }
+          @media (max-width: 899px) {
+            .Message_message-own .Message_messageBox:before {
+              border-width: 4px 0 4px 8px;
+              right: -8px;
+              top: 15px; } }
+      .Message_message-own .Message_recommend {
+        color: #fff; }
+        .Message_message-own .Message_recommend:visited {
+          color: #fff; }
+      .Message_message-own .Message_messageTime {
+        right: inherit;
+        left: -105px;
+        text-align: right; }
+        @media (max-width: 899px) {
+          .Message_message-own .Message_messageTime {
+            left: -50px; } }
+    .Message_messageBox {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      position: relative;
+      max-width: 420px;
+      margin-right: 100px;
+      color: #4c4c4c;
+      margin-left: 10px; }
+      @media (max-width: 899px) {
+        .Message_messageBox {
+          max-width: 85%;
+          padding: 10px 12px 12px; } }
+      .Message_messageBox:before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7.5px 15px 7.5px 0;
+        border-color: transparent #fff transparent transparent;
+        position: absolute;
+        left: -15px;
+        top: 15px; }
+        @media (max-width: 899px) {
+          .Message_messageBox:before {
+            content: none; } }
+      .Message_messageBox-recommend .Message_recommend {
+        border: none;
+        padding-top: 0;
+        margin-top: 0; }
+    .Message_messageInner {
+      font-size: 15px;
+      font-size: 15px;
+      font-size: 1.5rem;
+      line-height: 1.4;
+      word-break: break-all; }
+      @media (max-width: 899px) {
+        .Message_messageInner {
+          font-size: 15px;
+          font-size: 1.5rem;
+          letter-spacing: 1px; } }
+    .Message_messageTime {
+      position: absolute;
+      right: -105px;
+      width: 100px;
+      bottom: 0;
+      font-size: 10px;
+      font-size: 10px;
+      font-size: 1rem;
+      color: #000; }
+      @media (max-width: 899px) {
+        .Message_messageTime {
+          width: auto;
+          right: -50px; } }
+      .Message_messageTime span {
+        display: block;
+        line-height: 2; }
+    .Message_messageBottom {
+      display: block; }
+  .Message_recommend {
+    font-size: 13px;
+    font-size: 13px;
+    font-size: 1.3rem;
+    color: #0869D6;
+    font-weight: bold;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    border-top: 1px solid #f2f2f2;
+    padding-top: 10px;
+    margin-top: 10px; }
+    .Message_recommend:before {
+      content: "";
+      background: url(/img/icon_arrow_gray.svg) no-repeat 50% 50%;
+      width: 16px;
+      height: 16px;
+      background-size: 14px auto;
+      margin-right: 5px; }
+    .Message_recommend:visited {
+      color: #0869D6; }
+    .Message_recommend:hover {
+      filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.8" /><feFuncG type="linear" slope="0.8" /><feFuncB type="linear" slope="0.8" /></feComponentTransfer></filter></svg>#filter');
+      -webkit-filter: brightness(0.8);
+              filter: brightness(0.8); }
+  .Message_form {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 -5px 10px rgba(30, 30, 30, 0.05); }
+    @media (max-width: 899px) {
+      .Message_form {
+        z-index: 99;
+        bottom: 0;
+        position: fixed;
+        top: auto;
+        overflow: hidden; } }
+    .Message_formArea {
+      border-radius: 5px; }
+    .Message_formBottom {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: flex-end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      padding: 0 10px 10px;
+      position: relative; }
+      .Message_formBottomLeft {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start; }
+    .Message_formButton {
+      border: 1px solid #979797;
+      color: #333;
+      font-size: 14px;
+      font-size: 14px;
+      font-size: 1.4rem;
+      width: auto;
+      padding: 0 20px;
+      height: 36px;
+      line-height: 36px;
+      display: inline-block;
+      border-radius: 40px;
+      text-align: center;
+      margin-top: 10px;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      cursor: pointer;
+      -webkit-appearance: none;
+         -moz-appearance: none;
+              appearance: none;
+      font-weight: bold; }
+      @media (max-width: 899px) {
+        .Message_formButton {
+          padding: 0 12px !important; } }
+      .Message_formButton-add {
+        background: url(/img/icon_plus.svg) no-repeat 50% 50% #fff;
+        background-size: 12px auto;
+        padding: 0 20px;
+        margin-left: 10px; }
+        @media (max-width: 899px) {
+          .Message_formButton-add {
+            padding: 0 15px !important;
+            margin-left: 5px; } }
+      .Message_formButton-entry {
+        background: url(/img/icon_entry.svg) no-repeat 50% 50% #fff;
+        background-size: 25px auto;
+        padding: 0;
+        text-indent: -9999px; }
+        @media (max-width: 899px) {
+          .Message_formButton-entry {
+            padding: 0 !important;
+            margin-left: 3px;
+            margin-right: 3px; } }
+      @media (max-width: 899px) {
+        .Message_formButton {
+          line-height: 32px;
+          height: 32px; } }
+      .Message_formButton:hover {
+        filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.8" /><feFuncG type="linear" slope="0.8" /><feFuncB type="linear" slope="0.8" /></feComponentTransfer></filter></svg>#filter');
+        -webkit-filter: brightness(0.8);
+                filter: brightness(0.8); }
+      .Message_formButton:focus {
+        outline: none;
+        box-shadow: none; }
+      @media (max-width: 899px) {
+        .Message_formButton {
+          -webkit-justify-content: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          width: auto;
+          padding: 0 30px 0 20px; } }
+    .Message_formSubmit {
+      -webkit-appearance: none;
+         -moz-appearance: none;
+              appearance: none;
+      background: #06C769;
+      font-size: 16px;
+      font-size: 16px;
+      font-size: 1.6rem;
+      width: 140px;
+      height: 36px;
+      line-height: 36px;
+      display: inline-block;
+      color: #fff;
+      border-radius: 40px;
+      text-align: center;
+      margin-top: 6px;
+      border: none;
+      font-weight: bold; }
+      @media (max-width: 899px) {
+        .Message_formSubmit {
+          line-height: 32px;
+          height: 32px; } }
+      .Message_formSubmit:hover {
+        filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.8" /><feFuncG type="linear" slope="0.8" /><feFuncB type="linear" slope="0.8" /></feComponentTransfer></filter></svg>#filter');
+        -webkit-filter: brightness(0.8);
+                filter: brightness(0.8); }
+      .Message_formSubmit:focus {
+        outline: none;
+        box-shadow: none; }
+  .Message_textarea {
+    padding: 10px;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    width: 100%;
+    height: 80px;
+    overflow-y: scroll;
+    resize: none;
+    border: none;
+    font-size: 14px;
+    font-size: 14px;
+    font-size: 1.4rem; }
+    .Message_textarea:focus {
+      outline: none;
+      box-shadow: none; }
+    @media (max-width: 899px) {
+      .Message_textarea {
+        height: 64px; } }
+  .Message_infomation {
+    display: block;
+    margin-bottom: 30px; }
+    @media (max-width: 899px) {
+      .Message_infomation {
+        width: 75%;
+        margin: 0 auto 20px; } }
+    .Message_infomationText {
+      font-size: 14px;
+      font-size: 14px;
+      font-size: 1.4rem;
+      text-align: center;
+      color: #555;
+      font-weight: bold;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      @media (max-width: 899px) {
+        .Message_infomationText {
+          -webkit-align-items: flex-start;
+              -ms-flex-align: start;
+                  align-items: flex-start;
+          line-height: 1.5;
+          text-align: left; } }
+      .Message_infomationText:before {
+        content: "";
+        display: block;
+        background: url(/img/icon_info_gray.svg) no-repeat 50% 50%;
+        background-size: 18px 12px;
+        width: 16px;
+        height: 16px;
+        margin-right: 4px; }
+        @media (max-width: 899px) {
+          .Message_infomationText:before {
+            background-position: center;
+            width: 22px;
+            height: 22px; } }
+  .Message_back {
+    width: 18px;
+    height: 18px;
+    background: url(/img/icon_arrow_left.svg) no-repeat 50% 50%;
+    background-size: 18px auto;
+    display: block;
+    padding: 0 15px; }

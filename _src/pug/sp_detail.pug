@@ -1,0 +1,104 @@
+doctype html
+html(lang="ja")
+  link(rel="stylesheet",href="./css/style.css")
+  meta(http-equiv="X-UA-Compatible", content="IE=Edge")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, minimal-ui")
+body
+  .Message
+    .Message_inner
+      .Message_right
+        .Message_user
+          .Message_userLeft
+            .Message_userIcon(style="background-image:url(http://via.placeholder.com/100x100)")
+              .Message_userStatus.Message_userStatus-login
+
+          .Message_userCenter
+            .Message_userName
+              | NameNameNameName
+              span.Message_userCheck
+            .Message_userJob
+              | TRUNK inc.（エンジニア）
+
+              
+        .Message_room
+          ul.Message_messages
+            li.Message_message
+              .Message_userIcon(style="background-image:url(http://via.placeholder.com/100x100)")
+              .Message_messageBox
+                .Message_messageInner
+                  |こんにちは。こんにちは。こんにちは。
+                  br
+                  |こんにちは。こんにちは。こんにちは。
+                .Message_messageTime
+                  |2時間前
+            li.Message_infomation
+              p.Message_infomationText
+                |なにかテキスト入れるところ
+            li.Message_message.Message_message-own
+              .Message_messageBox
+                .Message_messageInner
+                  |こんにちは。
+                  br
+                  |みなさんこんにちは。
+                  br
+                  |みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。
+                  br
+                  |みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。
+
+                .Message_messageTime
+                  span
+                    |既読
+                  |2時間前
+            li.Message_message
+              .Message_userIcon(style="background-image:url(http://via.placeholder.com/100x100)")
+              .Message_messageBox
+                .Message_messageInner
+                  |みなさんこんにちは。
+                .Message_messageTime
+                  |2時間前
+            li.Message_message
+              .Message_userIcon(style="background-image:url(http://via.placeholder.com/100x100)")
+              .Message_messageBox.Message_messageBox-recommend
+                .Message_messageTime
+                  |2時間前
+            li.Message_message
+              .Message_userIcon(style="background-image:url(http://via.placeholder.com/100x100)")
+              .Message_messageBox
+                .Message_messageInner
+                  |みなさんこんにちは。
+                  br
+                  |みなさんこんにちは。みなさんこんにちは。
+                .Message_messageTime
+                  |2時間前
+            li.Message_message.Message_message-own
+              .Message_messageBox
+                .Message_messageInner
+                  |みなさんこんにちは。みなさんこんにちは。
+                  br
+                  |みなさんこんにちは。
+                  br
+                  |みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。
+                  br
+                  |みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。
+                .Message_messageTime
+                  span
+                    |既読
+                  |2時間前
+            li.Message_message.Message_message-own
+              .Message_messageBox
+                .Message_messageInner
+                  |みなさんこんにちは。
+                  br
+                  |みなさんこんにちは。みなさんこんにちは。
+                  br
+                  |みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。
+                  br
+                  |みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。みなさんこんにちは。
+                .Message_messageTime
+                  |2時間前
+        .Message_form
+          form.Message_formArea
+            textarea.Message_textarea(placeholder="メッセージを入力してください。※Enterで改行")
+            .Message_formBottom
+              input.Message_formSubmit(type="button",value="送信")
+          

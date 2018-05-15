@@ -1,0 +1,57 @@
+doctype html
+html(lang="ja")
+  link(rel="stylesheet",href="./css/style.css")
+  meta(http-equiv="X-UA-Compatible", content="IE=Edge")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, minimal-ui")
+body
+  .Message
+    .Message_inner
+      .Message_left
+        ul.Message_users
+          li.Message_user.Message_user-active
+            .Message_userLeft
+              .Message_userIcon(style="background-image:url(http://via.placeholder.com/100x100)")
+                .Message_userStatus.Message_userStatus-login
+                
+            .Message_userCenter
+              .Message_userName
+                | NAMENAMENAME
+                span.Message_userCheck
+              .Message_userJob
+                | TRUNK inc. 
+
+                
+            .Message_userRight
+              .Message_userTime
+                | 1分前
+          -for (var i = 0; i < 30; i++) {
+            li.Message_user
+              .Message_userLeft
+                .Message_userIcon(style="background-image:url(http://via.placeholder.com/100x100)")
+                  
+              .Message_userCenter
+                .Message_userName
+                  | NAMENAMENAME
+                  span.Message_userCheck
+                .Message_userJob
+                  | TRUNK inc. 
+                  
+              .Message_userRight
+                .Message_userTime
+                  | 1分前
+            li.Message_user.Message_user-done
+              .Message_userLeft
+                .Message_userIcon(style="background-image:url(http://via.placeholder.com/100x100)")
+                  .Message_userStatus
+                  
+              .Message_userCenter
+                .Message_userName
+                  | NAMENAMENAME
+                .Message_userJob
+                  | TRUNK inc. 
+                  
+              .Message_userRight
+                .Message_userTime
+                  | 1分前
+              
+          - }

@@ -1,0 +1,51 @@
+@charset "UTF-8";
+html {
+  font-size: 62.5%;
+}
+
+body {
+  // ベースとなる文字の大きさ(rem)
+  font-size: 1.6rem;
+
+  // 自動カーニング(paltで問題があった場合は、pknaを使用)
+  font-feature-settings : "palt" 1;
+
+  // 游ゴシック体優先指定
+  // font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Noto Sans Japanese", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+  font-family: "Noto Sans JP", "Helvetica Neue", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+  font-feature-settings:'palt';
+  letter-spacing: 0.4px;
+  background: #F2F2F2;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+  &:visited {
+    color: #333;
+  }
+  &:active {
+    color: #333;
+  }
+}
+.onlySp {
+  display: none !important;
+}
+
+.onlyPc {
+  display: block !important;
+}
+
+@include mq-small {
+  .onlySp {
+    display: block !important;
+  }
+
+  .onlyPc {
+    display: none !important;
+  }
+}

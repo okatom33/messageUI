@@ -1,0 +1,634 @@
+.Message {
+  $_ancestor:&;
+  display: flex;
+  max-width: 1080px;
+  margin:20px auto 0;
+  width: 100%;
+  @include mq-small{
+    display: block;
+    max-width: inherit;
+  };
+  &_left{
+    width: 320px;
+    min-width: 320px;
+    height: calc(100vh - 100px);
+    overflow: scroll;
+    border:1px solid #ececec;
+    @include mq-small{
+      margin-top:20px;
+      width: 100%;
+      height: auto;
+      min-width: inherit;
+      margin-top:0;
+    };
+  }
+  &_right{
+    width: 100%;
+    border-top:1px solid #ececec;
+    border-bottom:1px solid #ececec;
+    border-right:1px solid #ececec;
+    height: calc(100vh - 100px);
+    position: relative;
+    background: #f2f2f2;
+    @include mq-small{
+      position: relative;
+      width: 100%;
+      border-top:none;
+      border-bottom:none;
+      height: 100%;
+  };
+    #{$_ancestor}_user{
+      position: absolute;
+      height: 70px;
+      top:0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      justify-content: flex-start;
+      border-left:none;
+      @include mq-small{
+        height: auto;
+        position: fixed;
+        padding:5px;
+        box-sizing: border-box;
+        z-index: 999;
+        top:0;
+        overflow: hidden;
+        min-height: 50px;
+
+      };
+      &Icon{
+        margin-right:20px;
+        position: relative;
+        #{$_ancestor}_userStatus{
+          right:0;
+          bottom:0;
+        }
+      }
+      &Status{
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        @include font-size(13);
+        font-weight: bold;
+        color: #888;
+        display: flex;
+        align-items: center;
+        @include mq-small{
+          top: 5px;
+          right: 5px;
+          @include font-size(10);
+          font-weight: normal;
+        };
+
+      }
+      #{$_ancestor}_userJob-entry{
+        color: $COLOR_BLUE;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      &:hover{
+        background: #fff;
+      }
+    }
+  }
+  &_users{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #fff;
+  }
+  &_user{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom:1px solid #ececec;
+    padding:10px;
+    position: relative;
+    @include mq-small{
+      justify-content: flex-start;
+    };
+    &:last-child{
+      border-bottom:none;
+    }
+    &:hover{
+      background: #f0f0f0;
+      cursor: pointer;
+    }
+    &-active{
+      background: #2D8DFB;;
+      #{$_ancestor}_userName,#{$_ancestor}_userJob,#{$_ancestor}_userTime{
+        color: #fff;
+      }
+      &:hover{
+        background: #2D8DFB;;
+        #{$_ancestor}_userName,#{$_ancestor}_userJob,#{$_ancestor}_userTime{
+          color: #fff;
+        }
+      }
+    }
+    &-done{
+      background: #f7f7f7;;
+    }
+    &Left{
+      width: 50px;
+      @include mq-small{
+        width: 70px;
+        display: flex;
+        align-items: center;
+        &-detail{
+          width: 40px;
+        }
+      };
+    }
+    &Center{
+      width: 200px;
+      margin-left: 10px;
+      @include mq-small{
+        margin-left: 5px;
+      };
+    }
+    &Attr{
+      #{$_ancestor}_userCharge{
+        position: absolute;
+        bottom:15px;
+        right:20px;
+        @include mq-small{
+          bottom:5px;
+          right:5px;
+        };
+      }
+    }
+    &Right{
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      text-align: right;
+      width: auto;
+      height: 30px;
+      @include mq-small{
+        position: absolute;
+        right:10px;
+        top:15px;
+      };
+    }
+    &Icon{
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+      border-radius: 50px;
+      background:url() no-repeat 50% 50%;
+      background-size:cover;
+      position: relative;
+      @include mq-small{
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        border-radius: 34px;
+        margin-right: 0 !important;
+      };
+    }
+    &Status{
+      &-login{
+        &:before{
+          content: "";
+  	      height: 12px;
+          width: 12px;
+          display: block;
+          position: absolute;
+          right:0;
+          bottom:0;
+          border-radius: 16px;
+          background-color: $COLOR_GREEN;
+          margin-right:2px;
+        }
+      }
+    }
+    &Check{
+      display: inline-block;
+      background: url(/img/icon_checked.svg) no-repeat 50% 50%;
+      width: 14px;
+      height: 14px;
+      background-size:14px auto;
+      border-radius: 10px;
+      margin-left: 5px;
+    }
+    &Name{
+      @include font-size(14);
+      font-weight: bold;
+
+      @include mq-small{
+        @include font-size(13);
+      };
+    }
+    &Job{
+      @include font-size(13);
+      margin-top:5px;
+      color: #888;
+      @include mq-small{
+        @include font-size(11);
+        margin-top: 3px;
+      };
+      &-entry{
+        white-space: nowrap;
+        @include font-size(11);
+        margin-top:3px;
+        width: calc(100% - 20px);
+        overflow: hidden;
+        @include mq-small{
+          width: calc(100% - 20px);
+          overflow: hidden;
+        };
+      }
+    }
+    &Charge{
+      background: $COLOR_RED;
+      padding:3px 5px;
+      color: #fff;
+      @include font-size(10);
+      font-weight: bold;
+      width: auto;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    &Time{
+      @include font-size(10);
+      margin-top:5px;
+    }
+    .Job_agentIcon{
+      &:before{
+        border-width: 42px 44px 0 0;
+      }
+      &:after{
+        @include font-size(10);
+        top: 10px;
+      }
+
+    }
+  }
+  &_link{
+    color: #333;
+    text-decoration: none;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+  &_room{
+    background: #f2f2f2;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    overflow-y: scroll;
+    height: calc(100% - 207px);
+    @include mq-small{
+      box-sizing: border-box;
+      position: static;
+      height: 100%;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch !important;
+    };
+
+  }
+  &_messages{
+    display: block;
+    padding:20px;
+    height: 100%;
+    @include mq-small{
+      padding: 0 10px;
+    };
+
+  }
+  &_message{
+    display: flex;
+    align-items: top;
+    margin-bottom:30px;
+    @include mq-small{
+      margin-bottom:12px;
+    };
+    &:first-child{
+      @include mq-small{
+        padding-top:50px;
+      };
+    }
+    &:last-child{
+      padding-bottom:50px;
+      @include mq-small{
+        margin-bottom:120px;
+      };
+    }
+    &-own{
+      justify-content: flex-end;
+      #{$_ancestor}_messageBox{
+        background: #2D8DFB;
+        color: #fff;
+        margin-right: 0;
+        margin-left: 100px;
+        @include mq-small{
+          margin-left:20px;
+        };
+        &:before{
+          content: "";
+          display: block;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 7.5px 0 7.5px 15px;
+          border-color: transparent transparent transparent #2D8DFB;
+          position: absolute;
+          left: inherit;
+          right: -15px;
+          top:15px;
+          @include mq-small{
+            border-width: 4px 0 4px 8px;
+            right: -8px;
+            top: 15px;
+          };
+        }
+      }
+      #{$_ancestor}_recommend{
+        color: #fff;
+        &:visited{
+          color: #fff;
+        }
+      }
+      #{$_ancestor}_messageTime{
+        right: inherit;
+        left: -105px;
+        text-align: right;
+        @include mq-small{
+          left: -40px;
+        };
+      }
+    }
+    &Box{
+      background: #fff;
+      border-radius: 10px;
+      padding:15px;
+      position: relative;
+      max-width: 420px;
+      margin-right: 100px;
+      color: #4c4c4c;
+      @include mq-small{
+        max-width: 85%;
+        padding: 10px 12px 12px;
+      };
+      &:before{
+        content:"";
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7.5px 15px 7.5px 0;
+        border-color: transparent #fff transparent transparent;
+        position: absolute;
+        left: -15px;
+        top:15px;
+        @include mq-small{
+          border-width: 4px 8px 4px 0;
+          left: -8px;
+          top: 15px;
+        };
+      }
+      &-recommend{
+        #{$_ancestor}_recommend{
+          border: none;
+          padding-top:0;
+          margin-top:0;
+        }
+      }
+    }
+    &Inner{
+      @include font-size(15);
+      line-height: 1.4;
+      word-break: break-all;
+      @include mq-small{
+        @include font-size(15);
+        letter-spacing: 1px;
+      };
+    }
+    &Time{
+      position: absolute;
+      right:-105px;
+      width: 100px;
+      bottom:0;
+      @include font-size(10);
+      color: #000;
+      @include mq-small{
+        width: auto;
+        right: -46px;
+      };
+      span{
+        display: block;
+        line-height: 2;
+      }
+    }
+    &Bottom{
+      display: block;
+    }
+  }
+  &_recommend{
+    @include font-size(13);
+    color: $COLOR_BLUE;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-top:1px solid #f2f2f2;
+    padding-top:10px;
+    margin-top:10px;
+    &:before{
+      content: "";
+      background: url(/img/icon_arrow_gray.svg) no-repeat 50% 50%;
+      width: 16px;
+      height: 16px;
+      background-size:14px auto;
+      margin-right:5px;
+    }
+    &:visited{
+      color: $COLOR_BLUE;
+    }
+    &:hover{
+      filter: brightness(.8);
+    }
+  }
+  &_form{
+    position: absolute;
+    bottom:0;
+    left: 0;
+    right:0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 -5px 10px rgba(30,30,30,0.05);
+    @include mq-small{
+      z-index: 99;
+      bottom:0;
+      position: fixed;
+      top:auto;
+      overflow: hidden;
+    };
+
+    &Area{
+      border-radius: 5px;
+    }
+    &Bottom{
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      padding:0 10px 10px;
+      background: #f8f8f8;
+      position: relative;
+      &Left{
+        display: flex;
+        justify-content: flex-start;
+      }
+    }
+    &Button{
+      border:1px solid #979797;
+      color: #333;
+      @include font-size(14);
+      width: auto;
+      padding:0 20px;
+      height: 36px;
+      line-height: 36px;
+      display: inline-block;
+      border-radius: 40px;
+      text-align: center;
+      margin-top:10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      appearance:none;
+      font-weight: bold;
+      @include mq-small{
+        padding: 0 12px !important;
+      }
+      &-add{
+        background: url(/img/icon_plus.svg) no-repeat 50% 50% #fff;
+        background-size:12px auto;
+        padding:0 20px;
+        margin-left:10px;
+        @include mq-small{
+          padding:0 15px !important;
+          margin-left:5px;
+        };
+      }
+      &-entry{
+        background: url(/img/icon_entry.svg) no-repeat 50% 50% #fff;
+        background-size:25px auto;
+        padding:0;
+        text-indent: -9999px;
+        @include mq-small{
+          padding:0 !important;
+          margin-left:3px;
+          margin-right:3px;
+        };
+      }
+      @include mq-small{
+        line-height: 32px;
+        height: 32px;
+      }
+      &:hover{
+        filter: brightness(0.8);
+      }
+      &:focus{
+        outline: none;
+        box-shadow: none;
+      }
+      @include mq-small{
+        justify-content: center;
+        width: auto;
+        padding:0 30px 0 20px;
+      }
+    }
+    &Submit{
+      appearance:none;
+      background: $COLOR_GREEN;
+      @include font-size(16);
+      width: 140px;
+      height: 36px;
+      line-height: 36px;
+      display: inline-block;
+      color: #fff;
+      border-radius: 40px;
+      text-align: center;
+      margin-top:6px;
+      border:none;
+      font-weight: bold;
+      @include mq-small{
+        line-height: 32px;
+        height: 32px;
+      };
+      &:hover{
+        filter: brightness(0.8);
+      }
+      &:focus{
+        outline: none;
+        box-shadow: none;
+      }
+    }
+  }
+  &_textarea{
+    padding:10px;
+    appearance:none;
+    width: 100%;
+    height: 80px;
+    overflow-y: scroll;
+    resize: none;
+    border: none;
+    @include font-size(14);
+    &:focus{
+      outline: none;
+      box-shadow: none;
+    }
+    @include mq-small{
+      height: 64px;
+    };
+  }
+  &_infomation{
+    display: block;
+    margin-bottom::30px;
+    @include mq-small{
+      width: 75%;
+      margin: 0 auto 20px;
+    };
+    &Text{
+      @include font-size(14);
+      text-align: center;
+      color: #555;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include mq-small{
+        align-items: flex-start;
+        line-height: 1.5;
+        text-align: left;
+      };
+      &:before{
+        content:"";
+        display: block;
+        background: url(/img/icon_info_gray.svg) no-repeat 50% 50%;
+        background-size:18px 12px;
+        width: 16px;
+        height: 16px;
+        margin-right:4px;
+        @include mq-small{
+          // background-position: left 0 top 0;
+          background-position: center;
+          width: 22px;
+          height: 22px;
+        };
+      }
+    }
+  }
+  &_back{
+    width: 18px;
+    height: 18px;
+    background: url(/img/icon_arrow_left.svg) no-repeat 50% 50%;
+    background-size:18px auto;
+    display: block;
+    padding:0 15px;
+  }
+}
